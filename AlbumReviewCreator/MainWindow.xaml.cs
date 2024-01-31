@@ -502,7 +502,7 @@ namespace AlbumReviewCreator
                     Font artistFont = new Font(new System.Drawing.FontFamily("Times New Roman"), 20, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
                     Font gradeFont = new Font(new System.Drawing.FontFamily("Tiempos Headline Light"), 20);
                     Font genreFont = new Font(new System.Drawing.FontFamily("Tiempos Headline Light"), 20);
-                    Font reviewFont = new Font(new System.Drawing.FontFamily("Microsoft YaHei"), 20);
+                    Font reviewFont = new Font(new System.Drawing.FontFamily("霞鹜文楷"), 20);
 
                     SolidBrush brush = new SolidBrush(System.Drawing.Color.Black);
 
