@@ -1,0 +1,161 @@
+﻿<Window x:Class="AlbumReviewCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlbumReviewCreator"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" Background="Transparent"
+        Title="Album Review Creator" Height="450" Width="800"
+        WindowState="Normal" ResizeMode="CanMinimize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="-1"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <ControlTemplate x:Key="CircularButtonTemplate" TargetType="Button">
+            <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="PART_Border" Property="Background" Value="LightBlue"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="RedCircularButtonTemplate" TargetType="Button">
+            <Border x:Name="PART_Border" Background="#FFB7C5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="PART_Border" Property="Background" Value="#FF514D"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="GreenCircularButtonTemplate" TargetType="Button">
+            <Border x:Name="PART_Border" Background="#90EE90" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="PART_Border" Property="Background" Value="#00FF00"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Left" Width="800">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="405"/>
+        </Grid.RowDefinitions>
+
+        <!-- Album Details Section -->
+        <Grid Grid.Row="1" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="550"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Album Cover -->
+            <Border x:Name="AlbumCover" Background="#FFFEEE" Height="200" VerticalAlignment="Top" BorderThickness="3,3,3,3" BorderBrush="#FF726D6D" Margin="50,0,0,0" HorizontalAlignment="Left" Width="200" MouseLeftButtonDown="AlbumCover_MouseLeftButtonDown">
+                <Border x:Name="DiscConstuct1" Width="150" Height="150" CornerRadius="75" Background="#222222">
+                    <Border x:Name="DiscConstuct2" Width="50" Height="50" CornerRadius="25" Background="#FFFEEE"></Border>
+                </Border>
+            </Border>
+
+            <!-- Album Details StackPanel -->
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,10,25">
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="390"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Album Name" Foreground="Black" FontFamily="Consolas" FontSize="19" VerticalAlignment="Top" Height="28" Margin="0,4,0,0"/>
+                    <TextBox x:Name="AlbumName" Grid.Column="1" Height="30" Margin="10,5,100,5" FontFamily="Consolas" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" Background="#FFFFFEEE" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="Input Album Name Here" Foreground="Gray"/>
+                </Grid>
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="390"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Artist Name" Foreground="Black" FontFamily="Consolas" FontSize="19" VerticalAlignment="Top" Height="28" Margin="0,4,0,0"/>
+                    <TextBox x:Name="ArtistName" Grid.Column="1" Height="30" Margin="10,5,100,5" FontFamily="Consolas" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" Background="#FFFFFEEE" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="Input Artist Name Here" Foreground="Gray"/>
+                </Grid>
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="135"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="LableReleaseDate" Grid.Column="0" Content="Release Date" Foreground="Black" FontFamily="Consolas" FontSize="19" VerticalAlignment="Top" Height="28" Margin="0,4,0,0"/>
+                    <TextBox x:Name="ReleaseDate" Grid.Column="1" Height="30" Margin="10,5,10,5" FontFamily="Consolas" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" Background="#FFFFFEEE" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="YYYY-MM-DD" Foreground="Gray"/>
+                    <Label x:Name="LabelNum" Grid.Column="2" Content="#" Foreground="Black" FontFamily="Consolas" FontSize="19" VerticalAlignment="Top" Height="28" Margin="0,4,0,0"/>
+                    <TextBox x:Name="Num" Grid.Column="3" Height="30" Margin="5,5,70,5" FontFamily="Consolas" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" Background="#FFFFFEEE" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="0" Foreground="Gray"/>
+                </Grid>
+                <Grid Height="210">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="450"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Review" Foreground="Black" FontFamily="Consolas" FontSize="19" VerticalAlignment="Top" Height="28" Grid.ColumnSpan="2" Margin="0,0,385,0"/>
+                    <TextBox x:Name="Review" Grid.Column="1" Margin="10,5,100,55" FontFamily="Consolas" FontSize="20" TextWrapping="Wrap" Background="#FFFFFEEE" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="Write Down Your Review Here" Foreground="Gray"/>
+                    <Grid Grid.ColumnSpan="2" Margin="0,170,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="390"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Music Genre" Foreground="Black" FontFamily="Consolas" FontSize="19" VerticalAlignment="Top" Height="28" Margin="0,4,0,0"/>
+                        <TextBox x:Name="MusicGenre" Grid.Column="1" Height="30" Margin="10,5,100,5" FontFamily="Consolas" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" Background="#FFFFFEEE" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="Split With Comma" Foreground="Gray"/>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+        <!-- Rating Control Sliders -->
+        <StackPanel x:Name="RatingControlers" Grid.Row="1" Orientation="Vertical" Margin="50,230,550,40">
+            <Grid>
+                <TextBox x:Name="StarredTracksCnt" Height="30" Text="" FontFamily="Consolas" FontSize="18" Background="#FFFFFEEE" Width="25" HorizontalAlignment="Left" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Content="Starred / All" Foreground="Black" FontFamily="Consolas" FontSize="19" HorizontalAlignment="Center"/>
+                <TextBox x:Name="AllTracksCnt" Height="30" Text="" FontFamily="Consolas" FontSize="18" Background="#FFFFFEEE" Width="25" HorizontalAlignment="Right" TextAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Label x:Name="Correction_Factor" Content="Correction Factor" Foreground="Black" FontFamily="Consolas" FontSize="19" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+            <Slider x:Name="CorrectionSlider" Width="150" Height="20" HorizontalAlignment="Center" Minimum="-1" Maximum="1" Value="0" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True"/>
+            <Grid>
+                <Label x:Name="FactorMinus" Content="-1" Foreground="Black" FontFamily="Consolas" FontSize="18" HorizontalAlignment="Left" Margin="0 -20 0 0"/>
+                <Label x:Name="FactorZero" Content="0" Foreground="Black" FontFamily="Consolas" FontSize="18" HorizontalAlignment="Center" Margin="0 -10 0 0"/>
+                <Label x:Name="FactorPlus" Content="1 " Foreground="Black" FontFamily="Consolas" FontSize="18" HorizontalAlignment="Right" Margin="0 -20 0 0"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Album Name Control Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="710,5,30,370">
+            <Button x:Name="ClearAlbumName" Content="" Width="25" Height="25" Margin="0 0 0 0" Template="{StaticResource RedCircularButtonTemplate}" Click="ClearAlbumName_Click"/>
+            <Button x:Name="FormatAlbumName" Content="" Width="25" Height="25" Margin="10 0 0 0" Template="{StaticResource GreenCircularButtonTemplate}" Click="FormatAlbumName_Click"/>
+        </StackPanel>
+
+        <!-- Artist Name Control Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="710,55,30,320">
+            <Button x:Name="ClearArtistName" Content="" Width="25" Height="25" Margin="0 0 0 0" Template="{StaticResource RedCircularButtonTemplate}" Click="ClearArtistName_Click"/>
+            <Button x:Name="FormatArtistName" Content="" Width="25" Height="25" Margin="10 0 0 0" Template="{StaticResource GreenCircularButtonTemplate}" Click="FormatArtistName_Click"/>
+        </StackPanel>
+
+        <!-- Release Date Control Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="710,105,30,270">
+            <Button x:Name="ClearDateAndNum" Content="" Width="25" Height="25" Margin="0 0 0 0" Template="{StaticResource RedCircularButtonTemplate}" Click="ClearDateAndNum_Click"/>
+            <Button x:Name="FormatDate" Content="" Width="25" Height="25" Margin="10 0 0 0" Template="{StaticResource GreenCircularButtonTemplate}" Click="FormatDate_Click"/>
+        </StackPanel>
+
+        <!-- General Control Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="710,155,30,55">
+            <Button x:Name="Settings" Content="" Width="30" Height="30" Margin="0 5" Template="{StaticResource CircularButtonTemplate}"/>
+            <Button x:Name="LoadFromJson" Content="" Width="30" Height="30" Margin="0 5" Template="{StaticResource CircularButtonTemplate}" Click="LoadFromJson_Click"/>
+            <Button x:Name="SaveAsJson" Content="" Width="30" Height="30" Margin="0 5" Template="{StaticResource CircularButtonTemplate}" Click="SaveAsJson_Click"/>
+            <Button x:Name="Preview" Content="" Width="30" Height="30" Margin="0 5" Template="{StaticResource CircularButtonTemplate}" Click="Preview_Click"/>
+            <Button x:Name="SaveAsImage" Content="" Width="30" Height="30" Margin="0 5" Template="{StaticResource CircularButtonTemplate}"/>
+        </StackPanel>
+    </Grid>
+</Window>

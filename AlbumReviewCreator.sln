@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbumReviewCreator", "AlbumReviewCreator\AlbumReviewCreator.csproj", "{B8987D8A-1416-4260-98C2-64153FAF7D59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8987D8A-1416-4260-98C2-64153FAF7D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8987D8A-1416-4260-98C2-64153FAF7D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8987D8A-1416-4260-98C2-64153FAF7D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8987D8A-1416-4260-98C2-64153FAF7D59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A99D9146-E743-41BA-AEF7-6825D47D3DDA}
+	EndGlobalSection
+EndGlobal
